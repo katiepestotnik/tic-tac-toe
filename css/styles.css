@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+  }
+  
+main{
+    /* center vertically with height prop */
+    height:  100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game-board {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    gap: 20px;
+  }
+  
+.square {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #f62c86;
+  }
