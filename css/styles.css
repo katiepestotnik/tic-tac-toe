@@ -7,7 +7,9 @@ main{
     height:  100vh;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    /* puts button below grid */
+    flex-direction: column;
 }
 .game-board {
     display: grid;
@@ -19,4 +21,14 @@ main{
     height: 100px;
     width: 100px;
     border: 1px solid #f62c86;
+  }
+.butt{
+    background-color: #f62c86;
+    color: black;
+    font-size: 25px;
+    margin-top: 20px;
+  }
+  h1{
+      color: #f62c86;
+      text-align: center;
   }
