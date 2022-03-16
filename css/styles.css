@@ -21,6 +21,7 @@ main{
     height: 100px;
     width: 100px;
     border: 1px solid #f62c86;
+    background-color: white;
   }
 .butt{
     background-color: #f62c86;

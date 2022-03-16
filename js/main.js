@@ -81,19 +81,37 @@ const handleMove = (event) => {
     const squareNumer = parseInt(event.target.dataset.square)
     console.log(`${squareNumer}`)
     //know the spot has been claimed
+    if (board[squareNumer] || winner) {
+        return
+    }
     board[squareNumer] = turn
     //toggle turn 
     turn *= -1
     //check winner
-    winner = checkForWinner()
+    winner = winnerCheck()
     //render message to user
     render()
 }
 const winnerCheck = () => {
-    console.log("winner check")
-}
+    for (let index in winningCombos) {
+        if (board[winningCombos[index][0]] === turn &&
+            board[winningCombos[index][1]] === turn &&
+            board[winningCombos[index][2]] === turn) {
+             return turn
+            }
+    }
+    if (board.includes(null)) {
+        return null
+    }
+    return 'tie'
+    }
+
 const render = () => {
     console.log('render')
+    //loop over board puts an x or o on the board 
+    board.forEach((element, index) => {
+        squares[index].textContent = players[element]
+    })
 }
 //starts the game on load
 init()
