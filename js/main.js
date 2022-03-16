@@ -67,15 +67,38 @@ const reset = document.querySelector(".butt")
 const gameBoard = document.querySelector(".game-board")
 
 //functions
-const handleMove = () => {
 
+const init = (event) => {
+    //use state variables
+    //array keeps track of player moves
+    console.log("game initialized")
+    board = new Array(9).fill(null) //[null, *9]
+    turn = 1 //x goes first
+    winner = null //no winner at beginning
 }
-const init = () => {
-    
+const handleMove = (event) => {
+    //square number uses data-square="value"
+    const squareNumer = parseInt(event.target.dataset.square)
+    console.log(`${squareNumer}`)
+    //know the spot has been claimed
+    board[squareNumer] = turn
+    //toggle turn 
+    turn *= -1
+    //check winner
+    winner = checkForWinner()
+    //render message to user
+    render()
 }
-
-
-
+const winnerCheck = () => {
+    console.log("winner check")
+}
+const render = () => {
+    console.log('render')
+}
+//starts the game on load
+init()
+winnerCheck()
+render()
 //event listeners
 //delegate to square through class of game board
 gameBoard.addEventListener("click", handleMove)
